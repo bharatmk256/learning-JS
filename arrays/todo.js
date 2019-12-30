@@ -33,6 +33,28 @@ let deleteTodo = function(todo, todoTitle) {
   }
 };
 
-deleteTodo(todo, "todo4");
+const getThingsToDo = function(todos) {
+  return todos.filter(function(todo, index) {
+    return todo.completed === false;
+  });
+};
 
+const sortTodos = function(todo) {
+  todo.sort(function(a, b) {
+    if (!a.completed && b.completed) {
+      return -1;
+    } else if (!b.completed && a.completed) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+};
+
+sortTodos(todo);
 console.log(todo);
+
+// console.log(getThingsToDo(todo));
+
+// deleteTodo(todo, "todo4");
+// console.log(todo);
