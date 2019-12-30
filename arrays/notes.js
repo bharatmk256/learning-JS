@@ -17,3 +17,11 @@ notes.forEach(function(item, index) {
 
 console.log(notes.length);
 console.log(notes);
+
+for (let i = 2; i >= 0; i--) {
+  console.log(`${i}. Hello world`);
+}
+
+for (let count = notes.length - 1; count >= 0; count--) {
+  console.log(`${notes[count]}`);
+}
