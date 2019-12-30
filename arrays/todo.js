@@ -1,12 +1,38 @@
-let todo = ["todo1", "todo2", "todo3", "todo4", "todo5"];
+let todo = [
+  {
+    text: "todo1",
+    completed: true
+  },
+  {
+    text: "todo2",
+    completed: false
+  },
+  {
+    text: "todo3",
+    completed: true
+  },
+  {
+    text: "todo4",
+    completed: false
+  },
+  {
+    text: "todo5",
+    completed: false
+  }
+];
 
-todo.splice(2, 1);
-todo.push("hello world");
-todo.shift();
+// convert arry to arry of objects -> text, completed
+// create function to remove a todo by text value
 
-console.log(`You have ${todo.length} in your to-do list!`);
-// console.log(todo);
+let deleteTodo = function(todo, todoTitle) {
+  const index = todo.findIndex(function(doo, index) {
+    return doo.text.toLowerCase() === todoTitle.toLowerCase();
+  });
+  if (index > 1) {
+    todo.splice(index, 1);
+  }
+};
 
-todo.forEach(function(item, index) {
-  console.log(`${index + 1}. ${item}`);
-});
+deleteTodo(todo, "todo4");
+
+console.log(todo);
